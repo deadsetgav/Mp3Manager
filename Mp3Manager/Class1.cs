@@ -8,5 +8,7 @@ namespace Mp3Manager
 {
     public class Class1
     {
+
+
     }
 }
