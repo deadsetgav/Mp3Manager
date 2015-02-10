@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Common.Abstract
 {
-    public interface IMp3 : IMp3File, IMp3Metadata
+    public interface IMp3Metadata
     {
-
+        string AlbumArtist { get; }
     }
 }

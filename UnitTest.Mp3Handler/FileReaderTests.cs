@@ -19,6 +19,7 @@ namespace UnitTest.Mp3Handler
 
             // Assert
             Assert.AreEqual(fullFilePath, mp3.FullFilePath);
+            Assert.AreEqual("Ride", mp3.AlbumArtist);
 
         }
     }
