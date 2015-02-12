@@ -1,4 +1,5 @@
 ﻿using Common.Abstract;
+using Common.Exceptions;
 using Mp3Handler.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,15 @@ namespace Mp3Handler
     {
         public IMp3 Get(string fullFilePath)
         {
-            return new Mp3File(fullFilePath);
+            try
+            {
+                return new Mp3File(fullFilePath);
+            }
+            catch (Exception ex)
+            {
+                throw new ErrorRetrievingMp3Exception(fullFilePath, ex);
+            }
         }
+
     }
 }

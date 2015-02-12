@@ -23,6 +23,20 @@ namespace Mp3Handler.Concrete
             get { return _fullFilePath; }
         }
 
+        #region Read & Write Tags
+
+        public string Album
+        {
+            get 
+            {
+                return NullGuard(_tagLib.Tag.Album); 
+            }
+            set 
+            {
+                _tagLib.Tag.Album = value; 
+            }
+        }
+
         public string AlbumArtist
         {
             get 
@@ -35,6 +49,65 @@ namespace Mp3Handler.Concrete
             }
         }
 
+        public string Artist
+        {
+            get 
+            { 
+                return NullGuard(_tagLib.Tag.FirstPerformer); 
+            }
+            set 
+            { 
+                _tagLib.Tag.Performers = new string[] { value }; 
+            }
+        }
+        
+        public string Title
+        {
+            get 
+            { 
+                return NullGuard(_tagLib.Tag.Title); 
+            }
+            set 
+            { 
+                _tagLib.Tag.Title = value; 
+            }
+        }
+
+        public string Track
+        {
+            get 
+            { 
+                return NullGuard(_tagLib.Tag.Track.ToString()); 
+            }
+            set 
+            { 
+                _tagLib.Tag.Track = Convert.ToUInt16(value); 
+            }
+        }
+
+        public string Year
+        {
+            get 
+            { 
+                return NullGuard(_tagLib.Tag.Year.ToString()); 
+            }
+            set 
+            { 
+                _tagLib.Tag.Year = Convert.ToUInt16(value); 
+            }
+        }
+
+        public int BitRate
+        {
+            get 
+            { 
+                return _tagLib.Properties.AudioBitrate; 
+            }
+        }
+
+        #endregion
+
+        #region Private Helper Methods
         private string NullGuard(string value)
         {
             if (value == null)
@@ -42,5 +115,7 @@ namespace Mp3Handler.Concrete
             else
                 return value;
         }
+        #endregion
+    
     }
 }
