@@ -18,6 +18,7 @@ namespace UnitTest.Mp3Handler
             if (File.Exists(_testCopyFile)) File.Delete(_testCopyFile);
             if (File.Exists(_testMoveFile)) File.Delete(_testMoveFile);
             if (File.Exists(_testDestFile)) File.Delete(_testDestFile);
+            if (File.Exists(_testSaveFile)) File.Delete(_testSaveFile);
         }
 
         #endregion
@@ -26,6 +27,7 @@ namespace UnitTest.Mp3Handler
         private const string _testCopyFile = @"D:\testing\testCopy.mp3";
         private const string _testMoveFile = @"D:\testing\testMove.mp3";
         private const string _testDestFile = @"D:\testing\testDest.mp3";
+        private const string _testSaveFile = @"D:\testing\testSave.mp3";
 
         [TestMethod]
         public void GivenFilename_ReadMp3File()
@@ -142,5 +144,24 @@ namespace UnitTest.Mp3Handler
             Assert.IsFalse(File.Exists(_testMoveFile));
         }
 
+        [TestMethod]
+        public void WithMp3File_ChangeAndSave()
+        {
+            // Arrage
+            File.Copy(_testFile, _testSaveFile);
+
+            var handler = new FileHandler();
+            var mp3 = handler.Get(_testSaveFile);
+            
+            // Act
+            mp3.AlbumArtist = "Whirr";
+            mp3.Save();
+
+            // Assert
+            var checkMp3 = handler.Get(_testSaveFile);
+            Assert.AreNotEqual("Ride", mp3.AlbumArtist);
+            Assert.AreEqual("Whirr", mp3.AlbumArtist);
+            Assert.AreEqual("Going Blank Again", mp3.Album);
+        }
     }
 }

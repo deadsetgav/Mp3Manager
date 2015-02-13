@@ -124,7 +124,7 @@ namespace Mp3Handler.Concrete
 
         public void Save()
         {
-            throw new NotImplementedException();
+            this._tagLib.Save();
         }
 
         public void CopyTo(string filepath)
