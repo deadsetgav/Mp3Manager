@@ -1,4 +1,5 @@
 ﻿using Common.Abstract;
+using Mp3Handler.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,13 @@ namespace Mp3Handler.Concrete
     internal class Mp3File : IMp3
     {
         private string _fullFilePath;
+        private IWriter _writer;
         private TagLib.File _tagLib;
 
-        public Mp3File(string fullFilePath)
+        public Mp3File(string fullFilePath, IWriter writer)
         {
             this._fullFilePath = fullFilePath;
+            this._writer = writer;
             this._tagLib = TagLib.File.Create(fullFilePath);
         }
 
@@ -116,6 +119,24 @@ namespace Mp3Handler.Concrete
                 return value;
         }
         #endregion
-    
+
+        #region Saving
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(string filepath)
+        {
+            _writer.CopyTo(this, filepath);
+        }
+
+        public void MoveTo(string filepath)
+        {
+            _writer.MoveTo(this, filepath);
+        }
+
+        #endregion
     }
 }
