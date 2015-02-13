@@ -7,8 +7,8 @@
     <ProjectGuid>{F625F1C6-1056-4E58-8EC3-4E985C5B8447}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mp3Handler</RootNamespace>
-    <AssemblyName>Mp3Handler</AssemblyName>
+    <RootNamespace>MusicCollectionHandler</RootNamespace>
+    <AssemblyName>MusicCollectionHandler</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ICollecionHandler.cs" />
     <Compile Include="Abstract\IMp3Writer.cs" />
+    <Compile Include="Concrete\Artist.cs" />
     <Compile Include="Concrete\FileWriter.cs" />
     <Compile Include="Concrete\Mp3File.cs" />
     <Compile Include="CollectionHandler.cs" />

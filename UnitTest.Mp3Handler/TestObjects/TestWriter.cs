@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTest.MusicCollectionHandler.TestObjects
+namespace IntegrationTest.MusicCollectionHandler.TestObjects
 {
     class TestWriter : IMp3Writer
     {

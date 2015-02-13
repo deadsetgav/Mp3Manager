@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IArtist.cs" />
+    <Compile Include="Abstract\IArtistCollection.cs" />
     <Compile Include="Abstract\IMp3.cs" />
     <Compile Include="Abstract\IMp3File.cs" />
     <Compile Include="Abstract\IMp3Metadata.cs" />

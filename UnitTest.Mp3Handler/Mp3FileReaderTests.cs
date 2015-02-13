@@ -3,24 +3,34 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MusicCollectionHandler;
 using Common.Exceptions;
 using System.IO;
-using UnitTest.MusicCollectionHandler.TestObjects;
+using IntegrationTest.MusicCollectionHandler.TestObjects;
 
-namespace UnitTest.MusicCollectionHandler
+namespace IntegrationTest.MusicCollectionHandler
 {
     [TestClass]
     public class Mp3FileTests
     {
-        #region Fixture Setup
+        #region Fixture Setup & Teardown
         
         [ClassInitialize]
         public static void FixtureSetup(TestContext context)
+        {
+            CleanUp(); 
+        }
+
+        [ClassCleanup]
+        public static void FixtureTeardown()
+        {
+            CleanUp();
+        }
+
+        private static void CleanUp()
         {
             if (File.Exists(_testCopyFile)) File.Delete(_testCopyFile);
             if (File.Exists(_testMoveFile)) File.Delete(_testMoveFile);
             if (File.Exists(_testDestFile)) File.Delete(_testDestFile);
             if (File.Exists(_testSaveFile)) File.Delete(_testSaveFile);
-        }
-
+        }  
         #endregion
 
         private string _testFile = @"D:\testing\Ride\Going Blank Again\01 - Leave Them All Behind.mp3";
@@ -29,7 +39,7 @@ namespace UnitTest.MusicCollectionHandler
         private const string _testDestFile = @"D:\testing\testDest.mp3";
         private const string _testSaveFile = @"D:\testing\testSave.mp3";
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void GivenFilename_ReadMp3File()
         {
             // Arrange
@@ -43,8 +53,8 @@ namespace UnitTest.MusicCollectionHandler
             Assert.AreEqual(fullFilePath, mp3.FullFilePath);
 
         }
- 
-        [TestMethod]
+
+        [TestMethod, TestCategory("Integration")]
         [ExpectedException(typeof(ErrorRetrievingMp3Exception))]
         public void GivenBadFilename_GetException()
         {
@@ -59,7 +69,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.Fail("we should have had an exception thrown by now");
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void GivenFilename_CanOpenAndReadTagsOnFile()
         {
             // Arrage
@@ -79,7 +89,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.AreEqual(320, mp3.BitRate);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void WithMp3File_CheckCopyToIsCalled()
         {
             // Arrange
@@ -95,7 +105,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.AreEqual(_testCopyFile, testWriter.GetDestinationFileName());
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void WithMp3File_CheckMoveToIsCalled()
         {
             // Arrange
@@ -111,7 +121,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.AreEqual(_testCopyFile, testWriter.GetDestinationFileName());
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void WithMp3File_CopyToNewFile()
         {
             // Arrange
@@ -126,8 +136,8 @@ namespace UnitTest.MusicCollectionHandler
             Assert.IsTrue(File.Exists(_testCopyFile));
             Assert.IsTrue(File.Exists(_testFile));
         }
-      
-        [TestMethod]
+
+        [TestMethod, TestCategory("Integration")]
         public void WithMp3File_MoveFile()
         {
             // Arrage
@@ -144,7 +154,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.IsFalse(File.Exists(_testMoveFile));
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Integration")]
         public void WithMp3File_ChangeAndSave()
         {
             // Arrage
@@ -163,5 +173,7 @@ namespace UnitTest.MusicCollectionHandler
             Assert.AreEqual("Whirr", mp3.AlbumArtist);
             Assert.AreEqual("Going Blank Again", mp3.Album);
         }
+
+         
     }
 }

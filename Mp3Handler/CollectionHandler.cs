@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MusicCollectionHandler
 {
-    public class CollectionHandler
+    public class CollectionHandler : ICollectionHandler
     {
         private IMp3Writer _writer;
 
@@ -34,7 +34,10 @@ namespace MusicCollectionHandler
                 throw new ErrorRetrievingMp3Exception(fullFilePath, ex);
             }
         }
-    
-       
+
+        public IArtistCollection ReadCollection(string directoryPath)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

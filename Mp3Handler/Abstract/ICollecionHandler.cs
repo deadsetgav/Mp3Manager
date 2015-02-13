@@ -10,5 +10,6 @@ namespace MusicCollectionHandler.Abstract
     public interface ICollectionHandler
     {
         IMp3 Get(string mp3file);
+        IArtistCollection ReadCollection(string directoryPath);
     }
 }
