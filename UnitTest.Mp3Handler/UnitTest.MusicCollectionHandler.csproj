@@ -6,8 +6,8 @@
     <ProjectGuid>{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTest.Mp3Handler</RootNamespace>
-    <AssemblyName>UnitTest.Mp3Handler</AssemblyName>
+    <RootNamespace>UnitTest.MusicCollectionHandler</RootNamespace>
+    <AssemblyName>UnitTest.MusicCollectionHandler</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,7 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FileReaderTests.cs" />
+    <Compile Include="Mp3FileReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObjects\TestWriter.cs" />
   </ItemGroup>
@@ -59,9 +59,9 @@
       <Project>{de08f7e7-a826-409f-b259-ebf0ef5c6d0e}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mp3Handler\Mp3Handler.csproj">
+    <ProjectReference Include="..\Mp3Handler\MusicCollectionHandler.csproj">
       <Project>{f625f1c6-1056-4e58-8ec3-4e985c5b8447}</Project>
-      <Name>Mp3Handler</Name>
+      <Name>MusicCollectionHandler</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

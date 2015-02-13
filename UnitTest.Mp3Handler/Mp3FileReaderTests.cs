@@ -1,14 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mp3Handler;
+using MusicCollectionHandler;
 using Common.Exceptions;
 using System.IO;
-using UnitTest.Mp3Handler.TestObjects;
+using UnitTest.MusicCollectionHandler.TestObjects;
 
-namespace UnitTest.Mp3Handler
+namespace UnitTest.MusicCollectionHandler
 {
     [TestClass]
-    public class FileReaderTests
+    public class Mp3FileTests
     {
         #region Fixture Setup
         
@@ -34,7 +34,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrange
             var fullFilePath =_testFile;
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
 
             // Act
             var mp3 = handler.Get(fullFilePath);
@@ -50,7 +50,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrage
             var fullFilePath = @"D:\testing\Ride\Going Blank Again\00 -Doesn't Exist.mp3";
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
 
             // Act
             var mp3 = handler.Get(fullFilePath);
@@ -64,7 +64,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrage
             var fullFilePath = _testFile;
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
 
             // Act
             var mp3 = handler.Get(fullFilePath);
@@ -84,7 +84,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrange
             var testWriter = new TestWriter();
-            var handler = new FileHandler(testWriter);
+            var handler = new CollectionHandler(testWriter);
             var mp3 = handler.Get(_testFile);
 
             // Act
@@ -100,7 +100,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrange
             var testWriter = new TestWriter();
-            var handler = new FileHandler(testWriter);
+            var handler = new CollectionHandler(testWriter);
             var mp3 = handler.Get(_testFile);
 
             // Act
@@ -116,7 +116,7 @@ namespace UnitTest.Mp3Handler
         {
             // Arrange
             var fullFilePath = _testFile;
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
             var mp3 = handler.Get(_testFile);
 
             // Act
@@ -133,7 +133,7 @@ namespace UnitTest.Mp3Handler
             // Arrage
             File.Copy(_testFile, _testMoveFile);
 
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
             var mp3 = handler.Get(_testMoveFile);
 
             // Act
@@ -150,7 +150,7 @@ namespace UnitTest.Mp3Handler
             // Arrage
             File.Copy(_testFile, _testSaveFile);
 
-            var handler = new FileHandler();
+            var handler = new CollectionHandler();
             var mp3 = handler.Get(_testSaveFile);
             
             // Act

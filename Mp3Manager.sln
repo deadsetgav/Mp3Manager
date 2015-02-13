@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3Manager", "Mp3Manager\Mp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mp3Handler", "Mp3Handler\Mp3Handler.csproj", "{F625F1C6-1056-4E58-8EC3-4E985C5B8447}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicCollectionHandler", "Mp3Handler\MusicCollectionHandler.csproj", "{F625F1C6-1056-4E58-8EC3-4E985C5B8447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Mp3Handler", "UnitTest.Mp3Handler\UnitTest.Mp3Handler.csproj", "{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.MusicCollectionHandler", "UnitTest.Mp3Handler\UnitTest.MusicCollectionHandler.csproj", "{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

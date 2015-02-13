@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using Mp3Handler.Abstract;
+using MusicCollectionHandler.Abstract;
 
-namespace Mp3Handler.Concrete
+namespace MusicCollectionHandler.Concrete
 {
-    internal class FileWriter : IWriter
+    internal class Mp3FileWriter : IMp3Writer
     {
         public void CopyTo(IMp3File file, string destFilename)
         {

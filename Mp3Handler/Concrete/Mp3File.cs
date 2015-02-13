@@ -1,20 +1,20 @@
 ﻿using Common.Abstract;
-using Mp3Handler.Abstract;
+using MusicCollectionHandler.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mp3Handler.Concrete
+namespace MusicCollectionHandler.Concrete
 {
     internal class Mp3File : IMp3
     {
         private string _fullFilePath;
-        private IWriter _writer;
+        private IMp3Writer _writer;
         private TagLib.File _tagLib;
 
-        public Mp3File(string fullFilePath, IWriter writer)
+        public Mp3File(string fullFilePath, IMp3Writer writer)
         {
             this._fullFilePath = fullFilePath;
             this._writer = writer;

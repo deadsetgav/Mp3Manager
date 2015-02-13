@@ -1,24 +1,24 @@
 ﻿using Common.Abstract;
 using Common.Exceptions;
-using Mp3Handler.Abstract;
-using Mp3Handler.Concrete;
+using MusicCollectionHandler.Abstract;
+using MusicCollectionHandler.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mp3Handler
+namespace MusicCollectionHandler
 {
-    public class FileHandler
+    public class CollectionHandler
     {
-        private IWriter _writer;
+        private IMp3Writer _writer;
 
-        public FileHandler()
+        public CollectionHandler()
         {
-            _writer = new FileWriter();
+            _writer = new Mp3FileWriter();
         }
-        public FileHandler(IWriter writer)
+        public CollectionHandler(IMp3Writer writer)
         {
             _writer = writer;
         }
@@ -34,5 +34,7 @@ namespace Mp3Handler
                 throw new ErrorRetrievingMp3Exception(fullFilePath, ex);
             }
         }
+    
+       
     }
 }

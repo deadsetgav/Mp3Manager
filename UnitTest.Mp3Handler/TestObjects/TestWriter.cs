@@ -1,14 +1,14 @@
 ﻿using Common.Abstract;
-using Mp3Handler.Abstract;
+using MusicCollectionHandler.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTest.Mp3Handler.TestObjects
+namespace UnitTest.MusicCollectionHandler.TestObjects
 {
-    class TestWriter : IWriter
+    class TestWriter : IMp3Writer
     {
         private bool _copyToCalled = false;
         private bool _moveToCalled = false;

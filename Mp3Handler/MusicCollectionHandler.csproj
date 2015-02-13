@@ -45,11 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IHandler.cs" />
-    <Compile Include="Abstract\IWriter.cs" />
+    <Compile Include="Abstract\ICollecionHandler.cs" />
+    <Compile Include="Abstract\IMp3Writer.cs" />
     <Compile Include="Concrete\FileWriter.cs" />
     <Compile Include="Concrete\Mp3File.cs" />
-    <Compile Include="FileHandler.cs" />
+    <Compile Include="CollectionHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
