@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Models;
+using Common.Abstract;
 
 namespace Common.UnitTests.Models
 {
@@ -15,7 +16,7 @@ namespace Common.UnitTests.Models
         public void WithArtistCollection_CanCreate()
         {            
             // Act
-            var collection = new ArtistCollection();
+            IArtistCollection collection = new ArtistCollection();
 
             // Assert
             Assert.AreEqual(0, collection.Count);
@@ -26,10 +27,10 @@ namespace Common.UnitTests.Models
         {
             // Arrange
             var artist = new Artist("Slayer");
-            var collection = new ArtistCollection();
+            IArtistCollection collection = new ArtistCollection();
 
             // Act
-            collection.Add(artist);
+            collection = collection.Add(artist);
 
             // Assert
             Assert.AreEqual(1, collection.Count);
@@ -41,12 +42,13 @@ namespace Common.UnitTests.Models
             // Arrange
             var artist1 = new Artist("Megadeth");
             var artist2 = new Artist("Testament");
-            var collection = new ArtistCollection();
+            IArtistCollection collection = new ArtistCollection();
 
             // Act
-            collection.Add(artist1);
-            collection.Add(artist2);
-
+            collection = collection
+                            .Add(artist1)
+                            .Add(artist2);
+            
             // Assert
             Assert.AreEqual(2, collection.Count);
         }
@@ -56,14 +58,31 @@ namespace Common.UnitTests.Models
         {
             // Arrange
             var artist = new Artist("Anthrax");
-            var collection = new ArtistCollection();
+            IArtistCollection collection = new ArtistCollection();
 
             // Act
-            collection.Add(artist);
-            collection.Add(artist);
-
+            collection = collection
+                            .Add(artist)
+                            .Add(artist);
+            
             // Assert
             Assert.AreEqual(1, collection.Count);
+        }
+
+        [TestMethod]
+        public void WithArtistCollection_CheckObjectIsImmutable()
+        {
+            // Arrange
+            var artist1 = new Artist("Exodus");
+            var artist2 = new Artist("Metallica");
+            IArtistCollection collection = new ArtistCollection();
+
+            // Act
+            collection.Add(artist1);
+            collection.Add(artist2);
+
+            // Assert
+            Assert.AreEqual(0, collection.Count, "initial collection object should not change");
         }
 
     }

@@ -28,12 +28,20 @@ namespace Common.Models
             get { return _artistList.Count; }
         }
 
-        public void Add(IArtist artist)
+        public IArtistCollection Add(IArtist artist)
         {
+            var updateList = new List<IArtist>();
+            updateList.AddRange(_artistList);
+
             if (!this.ContainsArtist(artist))
             {
-                this._artistList.Add(artist);
+                 updateList.Add(artist);
             }
+
+            return new ArtistCollection()
+            {
+                _artistList =  updateList
+            };
         }
        
         #endregion
