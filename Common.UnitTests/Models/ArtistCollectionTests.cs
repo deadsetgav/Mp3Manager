@@ -18,7 +18,7 @@ namespace Common.UnitTests.Models
             var collection = new ArtistCollection();
 
             // Assert
-            Assert.AreEqual(0, collection.Artists.Count());
+            Assert.AreEqual(0, collection.Count);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace Common.UnitTests.Models
             collection.Add(artist);
 
             // Assert
-            Assert.AreEqual(1, collection.Artists.Count());
+            Assert.AreEqual(1, collection.Count);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace Common.UnitTests.Models
             collection.Add(artist2);
 
             // Assert
-            Assert.AreEqual(2, collection.Artists.Count());
+            Assert.AreEqual(2, collection.Count);
         }
 
         [TestMethod]
@@ -63,7 +63,7 @@ namespace Common.UnitTests.Models
             collection.Add(artist);
 
             // Assert
-            Assert.AreEqual(1, collection.Artists.Count());
+            Assert.AreEqual(1, collection.Count);
         }
 
     }

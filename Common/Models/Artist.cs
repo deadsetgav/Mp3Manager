@@ -20,5 +20,34 @@ namespace Common.Models
         {
             get { return _name; }
         }
+
+        #region Comparer
+        
+        public override bool Equals (object obj)
+        {
+            if (obj == null || GetType() != obj.GetType()) 
+            {
+                return false;
+            }
+
+            return SearchFriendly(this._name)
+                .Equals(SearchFriendly((obj as IArtist).Name));
+        }
+
+        public override int GetHashCode()
+        {
+            return this._name.GetHashCode();
+        }
+
+        #endregion
+
+        #region Private Helpers
+        
+        private string SearchFriendly(string term)
+        {
+            return term.ToLower().Trim();
+        }
+        
+        #endregion
     }
 }

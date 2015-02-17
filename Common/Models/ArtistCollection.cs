@@ -9,21 +9,38 @@ namespace Common.Models
 {
     public class ArtistCollection : IArtistCollection
     {
-        private List<IArtist> _artists;
+        private List<IArtist> _artistList;
 
         public ArtistCollection()
         {
-            this._artists = new List<IArtist>();
+            this._artistList = new List<IArtist>();
         }
+
+        #region IArtistCollection
 
         public IEnumerable<IArtist> Artists
         {
-            get { return _artists.ToArray(); }
+            get { return _artistList.ToArray(); }
+        }
+
+        public int Count
+        {
+            get { return _artistList.Count; }
         }
 
         public void Add(IArtist artist)
         {
-            this._artists.Add(artist);
+            if (!this.ContainsArtist(artist))
+            {
+                this._artistList.Add(artist);
+            }
+        }
+       
+        #endregion
+
+        private bool ContainsArtist(IArtist artist)
+        {
+            return _artistList.Contains(artist);
         }
     }
 }
