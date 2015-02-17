@@ -22,7 +22,7 @@ namespace FileRepository.IntegrationTests.Handlers
             var collection = handler.ReadCollection(_collectionDirectory);
 
             // Assert
-            Assert.AreEqual(3, collection.Artists.Count);
+            Assert.AreEqual(3, collection.Artists.Count());
         }
     }
 }

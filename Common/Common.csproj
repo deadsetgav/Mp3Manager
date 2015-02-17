@@ -45,6 +45,8 @@
     <Compile Include="Abstract\IMp3File.cs" />
     <Compile Include="Abstract\IMp3Metadata.cs" />
     <Compile Include="Exceptions\ErrorRetrievingMp3Exception.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\ArtistCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository.IntegrationT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository", "FileRepository\FileRepository.csproj", "{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository.UnitTests", "FileRepository.UnitTests\FileRepository.UnitTests.csproj", "{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UnitTests", "Common.UnitTests\Common.UnitTests.csproj", "{0F4581D8-5AA4-448E-94D3-9EE6893EFD1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4581D8-5AA4-448E-94D3-9EE6893EFD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4581D8-5AA4-448E-94D3-9EE6893EFD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4581D8-5AA4-448E-94D3-9EE6893EFD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4581D8-5AA4-448E-94D3-9EE6893EFD1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +48,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A} = {F71EFF0B-1713-4512-BD4A-DA4644F35DDF}
 		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA} = {F71EFF0B-1713-4512-BD4A-DA4644F35DDF}
+		{7A5EB5D4-E3DC-4D8A-AD44-E222B15A8682} = {F71EFF0B-1713-4512-BD4A-DA4644F35DDF}
 	EndGlobalSection
 EndGlobal

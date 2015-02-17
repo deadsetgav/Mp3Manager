@@ -8,6 +8,6 @@ namespace Common.Abstract
 {
     public interface IArtistCollection
     {
-        IList<IArtist> Artists { get; }
+        IEnumerable<IArtist> Artists { get; }
     }
 }
