@@ -5,9 +5,11 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicCollectionHandler", "Mp3Handler\MusicCollectionHandler.csproj", "{F625F1C6-1056-4E58-8EC3-4E985C5B8447}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{F71EFF0B-1713-4512-BD4A-DA4644F35DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest.MusicCollectionHandler", "UnitTest.Mp3Handler\IntegrationTest.MusicCollectionHandler.csproj", "{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository.IntegrationTests", "FileRepository.IntegrationTests\FileRepository.IntegrationTests.csproj", "{1E503299-7F5B-4457-A56B-DA9E1AD46F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRepository", "FileRepository\FileRepository.csproj", "{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +21,20 @@ Global
 		{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F625F1C6-1056-4E58-8EC3-4E985C5B8447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F625F1C6-1056-4E58-8EC3-4E985C5B8447}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F625F1C6-1056-4E58-8EC3-4E985C5B8447}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F625F1C6-1056-4E58-8EC3-4E985C5B8447}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7472A15-11CB-416F-8FD8-AFDCFF4E642C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E503299-7F5B-4457-A56B-DA9E1AD46F4A} = {F71EFF0B-1713-4512-BD4A-DA4644F35DDF}
+		{068A24EE-FA7F-44AC-8B27-85B04C67B3AA} = {F71EFF0B-1713-4512-BD4A-DA4644F35DDF}
 	EndGlobalSection
 EndGlobal
