@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileRepository.IntegrationTests.TestObjects
+namespace FileRepository.UnitTests.TestObjects
 {
     class TestWriter : IMp3Writer
     {

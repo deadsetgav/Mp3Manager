@@ -6,6 +6,7 @@ using System.IO;
 using FileRepository.Handlers;
 using FileRepository.IntegrationTests.TestObjects;
 using Common.Exceptions;
+using FileRepository.UnitTests.TestObjects;
 
 namespace FileRepository.IntegrationTests.Handlers
 {

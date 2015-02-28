@@ -48,8 +48,9 @@
     <Compile Include="Abstract\ICollectionHandler.cs" />
     <Compile Include="Abstract\IMp3Handler.cs" />
     <Compile Include="Abstract\IMp3Writer.cs" />
+    <Compile Include="Concrete\Album.cs" />
     <Compile Include="Concrete\Mp3File.cs" />
-    <Compile Include="Concrete\FileWriter.cs" />
+    <Compile Include="Concrete\Mp3FileWriter.cs" />
     <Compile Include="Handlers\CollectionHandler.cs" />
     <Compile Include="Handlers\Mp3Handler.cs" />
     <Compile Include="Handlers\MusicDirectory.cs" />
