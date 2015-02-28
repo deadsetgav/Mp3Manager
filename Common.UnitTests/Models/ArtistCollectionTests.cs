@@ -13,7 +13,7 @@ namespace Common.UnitTests.Models
     public class ArtistCollectionTests
     {
         [TestMethod]
-        public void WithArtistCollection_CanCreate()
+        public void ArtistCollection_CanCreate()
         {            
             // Act
             IArtistCollection collection = new ArtistCollection();
@@ -23,7 +23,7 @@ namespace Common.UnitTests.Models
         }
 
         [TestMethod]
-        public void WithArtistCollection_CanAddArtist()
+        public void ArtistCollection_CanAddArtist()
         {
             // Arrange
             var artist = new Artist("Slayer");
@@ -37,7 +37,7 @@ namespace Common.UnitTests.Models
         }
 
         [TestMethod]
-        public void WithArtistCollection_CanAddTwoArtists()
+        public void ArtistCollection_CanAddTwoArtists()
         {
             // Arrange
             var artist1 = new Artist("Megadeth");
@@ -54,7 +54,7 @@ namespace Common.UnitTests.Models
         }
 
         [TestMethod]
-        public void WithArtistCollection_CannotAddSameArtistTwice()
+        public void ArtistCollection_CannotAddSameArtistTwice()
         {
             // Arrange
             var artist = new Artist("Anthrax");
@@ -70,7 +70,7 @@ namespace Common.UnitTests.Models
         }
 
         [TestMethod]
-        public void WithArtistCollection_CheckObjectIsImmutable()
+        public void ArtistCollection_CheckObjectIsImmutable()
         {
             // Arrange
             var artist1 = new Artist("Exodus");

@@ -12,7 +12,7 @@ namespace Common.UnitTests.Models
     public class ArtistTests
     {
         [TestMethod]
-        public void WithArtist_CanCreate()
+        public void Artist_CanCreate()
         {
             // Arrage
             var testName = "Faith No More";
@@ -23,5 +23,28 @@ namespace Common.UnitTests.Models
             // Assert
             Assert.AreEqual(testName, artist.Name);
         }
+
+        [TestMethod]
+        public void Artist_TwoSameArtists_AreEqual()
+        {
+            // Arrange
+            var artist1 = new Artist("Soundgarden");
+            var artist2 = new Artist("soundgarden");
+
+            // Assert
+            Assert.AreEqual(artist1, artist2);
+        }
+        
+        [TestMethod]
+        public void Artist_TwoDifferentArtists_AreEqual()
+        {
+            // Arrange
+            var artist1 = new Artist("Soundgarden");
+            var artist2 = new Artist("Alice In Chains");
+
+            // Assert
+            Assert.AreNotEqual(artist1, artist2);
+        }
+
     }
 }

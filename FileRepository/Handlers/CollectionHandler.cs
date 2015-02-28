@@ -13,10 +13,19 @@ namespace FileRepository.Handlers
     {
         public IArtistCollection ReadCollection(string directoryPath)
         {
+
+            var directory = new MusicDirectory(directoryPath);
+
+
+
             return new ArtistCollection()
                         .Add(new Artist("test1"))
                         .Add(new Artist("test2"))
                         .Add(new Artist("test3"));
         }
+
+
     }
+
+   
 }

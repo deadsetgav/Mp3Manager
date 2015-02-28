@@ -28,8 +28,8 @@ namespace FileRepository.IntegrationTests.Handlers
 
         #endregion
 
-        [TestMethod, TestCategory("Integration")]
-        public void GivenFilename_ReadMp3File()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_GivenFilename_ReadMp3File()
         {
             // Arrange
             var fullFilePath = _testFile;
@@ -43,9 +43,9 @@ namespace FileRepository.IntegrationTests.Handlers
 
         }
 
-        [TestMethod, TestCategory("Integration")]
+        [TestMethod, TestCategory(Integration)]
         [ExpectedException(typeof(ErrorRetrievingMp3Exception))]
-        public void GivenBadFilename_GetException()
+        public void Mp3File_GivenBadFilename_GetException()
         {
             // Arrage
             var fullFilePath = @"D:\testing\Ride\Going Blank Again\00 -Doesn't Exist.mp3";
@@ -58,8 +58,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.Fail("we should have had an exception thrown by now");
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void GivenFilename_CanOpenAndReadTagsOnFile()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_GivenFilename_CanOpenAndReadTagsOnFile()
         {
             // Arrage
             var fullFilePath = _testFile;
@@ -78,8 +78,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.AreEqual(320, mp3.BitRate);
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void WithMp3File_CheckCopyToIsCalled()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_CheckCopyToIsCalled()
         {
             // Arrange
             var testWriter = new TestWriter();
@@ -94,8 +94,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.AreEqual(_testCopyFile, testWriter.GetDestinationFileName());
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void WithMp3File_CheckMoveToIsCalled()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_CheckMoveToIsCalled()
         {
             // Arrange
             var testWriter = new TestWriter();
@@ -110,8 +110,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.AreEqual(_testCopyFile, testWriter.GetDestinationFileName());
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void WithMp3File_CopyToNewFile()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_CopyToNewFile()
         {
             // Arrange
             var handler = new Mp3Handler();
@@ -125,8 +125,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.IsTrue(File.Exists(_testFile));
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void WithMp3File_MoveFile()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_MoveFile()
         {
             // Arrage
             File.Copy(_testFile, _testMoveFile);
@@ -142,8 +142,8 @@ namespace FileRepository.IntegrationTests.Handlers
             Assert.IsFalse(File.Exists(_testMoveFile));
         }
 
-        [TestMethod, TestCategory("Integration")]
-        public void WithMp3File_ChangeAndSave()
+        [TestMethod, TestCategory(Integration)]
+        public void Mp3File_ChangeAndSave()
         {
             // Arrage
             File.Copy(_testFile, _testSaveFile);

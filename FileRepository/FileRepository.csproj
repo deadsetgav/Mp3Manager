@@ -52,6 +52,7 @@
     <Compile Include="Concrete\FileWriter.cs" />
     <Compile Include="Handlers\CollectionHandler.cs" />
     <Compile Include="Handlers\Mp3Handler.cs" />
+    <Compile Include="Handlers\MusicDirectory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

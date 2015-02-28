@@ -12,8 +12,8 @@ namespace FileRepository.IntegrationTests.Handlers
     [TestClass]
     public class CollectionHandlerTests : IntegrationTestBase
     {
-        [TestMethod, TestCategory("Integration")]
-        public void GivenFilepath_CanReadCollection()
+        [TestMethod, TestCategory(Integration)]
+        public void CollectionHandler_GivenFilepath_CanReadCollection()
         {
             // Arrange
             var handler = new CollectionHandler();

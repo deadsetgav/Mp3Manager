@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Handlers\CollectionHandlerTests.cs" />
     <Compile Include="Handlers\Mp3HandlerTests.cs" />
+    <Compile Include="Handlers\MusicDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObjects\IntegrationTestBase.cs" />
     <Compile Include="TestObjects\TestWriter.cs" />
