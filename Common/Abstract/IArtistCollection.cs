@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Common.Abstract
 {
-    public interface IArtistCollection
+    public interface IMusicCollection
     {
         IEnumerable<IArtist> Artists { get; }
-        int Count { get; }
-        IArtistCollection Add(IArtist artist);
+        int ArtistCount { get; }
+        
+        IMusicCollection Add(IArtist artist);
+        IMusicCollection Add(IAlbum album);
+
+        bool ContainsArtist(IArtist artist);
+        bool ContainsArtist(string artistName);
     }
 }

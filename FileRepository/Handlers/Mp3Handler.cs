@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FileRepository.Handlers
 {
-    class Mp3Handler : IMp3Handler
+    class Mp3Handler : IMp3Reader
     {
         private IMp3Writer _writer;
 

@@ -1,16 +1,38 @@
 ﻿using FileRepository.UnitTests.TestObjects;
+using Common.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Abstract;
 
 namespace FileRepository.UnitTests.Concrete
 {
     [TestClass]
     public class AlbumTests
     {
+        [TestMethod]
+        public void Album_NoAvailableAlbumTitle_SetToUnknown()
+        {
+            // Arrange
+            var trackList = new List<IMp3Metadata>();
+            trackList.Add(new TestTrack
+                {
+                    Track = "01",
+                    Title = "Heartwork",
+                    Artist = "Carcass",
+                    Year = "1993"
+                });
+
+            // Act
+            var album = new TestAlbum(trackList);
+           
+            // Assert
+            Assert.AreEqual("Unknown Album", album.Title);
+        }
+
         [TestMethod]
         public void Album_AllTracksHaveSameAlbum_TitlePopulatesCorrectly()
         {
@@ -34,5 +56,24 @@ namespace FileRepository.UnitTests.Concrete
             Assert.AreEqual("Roads To Judah", album.Title);
         }
 
+        [TestMethod]
+        public void Album_ArtistNameSameAcrossAllTracks_ArtistPopulatesCorrectly()
+        {
+            // Arrange
+            var album = TestAlbum.CowboysFromHell();
+
+            // Assert 
+            Assert.AreEqual("Pantera", album.ArtistName);
+        }
+
+        [TestMethod]
+        public void Album_ArtistNameSlightlyDiffers_ArtistPopulatesCorrectly()
+        {
+            // Arrange
+            var album = TestAlbum.AngelDust();
+
+            // Assert
+            Assert.AreEqual("Faith No More", album.ArtistName);
+        }
     }
 }

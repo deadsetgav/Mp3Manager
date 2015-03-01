@@ -1,4 +1,5 @@
 ﻿using Common.Abstract;
+using Common.Exceptions;
 using FileRepository.Handlers;
 using FileRepository.IntegrationTests.TestObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,10 +19,21 @@ namespace FileRepository.IntegrationTests.Handlers
         public void MusicDirectory_CanCreate()
         {
             // Arrange
-            var dir = new MusicDirectory(_collectionDirectory);
+            var dir = new MusicDirectoryReader(_collectionDirectory);
 
             // Assert
             Assert.IsNotNull(dir);
+        }
+
+        [TestMethod, TestCategory(Integration)]
+        [ExpectedException(typeof(DirectoryDoesntExistException))]
+        public void MusicDirectory_GivenBadDirectory_ThrowsCorrectException()
+        {
+            // Arrange
+            var dir = new MusicDirectoryReader("doesn't exist");
+
+            // Assert
+            Assert.Fail("should have had an exception by now");
         }
 
         [TestMethod, TestCategory(Integration)]
@@ -89,7 +101,7 @@ namespace FileRepository.IntegrationTests.Handlers
 
             // Assert
             Assert.AreEqual(1, subs.Count());
-            Assert.IsInstanceOfType(subs[0], typeof(MusicDirectory));
+            Assert.IsInstanceOfType(subs[0], typeof(MusicDirectoryReader));
         }
 
         [TestMethod, TestCategory(Integration)]
@@ -136,14 +148,14 @@ namespace FileRepository.IntegrationTests.Handlers
 
         #region private helpers
 
-        private MusicDirectory GetDirectoryWithFiles()
+        private MusicDirectoryReader GetDirectoryWithFiles()
         {
-            return new MusicDirectory(_testFolderHasFiles);
+            return new MusicDirectoryReader(_testFolderHasFiles);
         }
 
-        private MusicDirectory GetDirectoryWithSubFoldersAndNoFiles()
+        private MusicDirectoryReader GetDirectoryWithSubFoldersAndNoFiles()
         {
-            return new MusicDirectory(_testFolderNoFiles);
+            return new MusicDirectoryReader(_testFolderNoFiles);
         }
 
         #endregion

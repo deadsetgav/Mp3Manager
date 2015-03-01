@@ -9,7 +9,7 @@ namespace Common.Abstract
     public interface IAlbum
     {
         string Title { get; }
-        IArtist Artist { get; }
+        string ArtistName { get; }
         IEnumerable<IMp3Metadata> Tracks { get; }
     }
 }

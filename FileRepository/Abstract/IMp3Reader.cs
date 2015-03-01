@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FileRepository.Abstract
 {
-    interface IMp3Handler
+    interface IMp3Reader
     {
         IMp3 Get(string mp3file);
     }

@@ -9,5 +9,7 @@ namespace Common.Abstract
     public interface IArtist
     {
         string Name { get; }
+        IEnumerable<IAlbum> Albums { get; }
+        IArtist Add(IAlbum album);
     }
 }

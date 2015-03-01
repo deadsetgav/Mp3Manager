@@ -1,4 +1,7 @@
-﻿using Common.Models;
+﻿using Common.Abstract;
+using Common.Exceptions;
+using Common.Models;
+using Common.UnitTests.TestObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -25,6 +28,17 @@ namespace Common.UnitTests.Models
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArtistNameNullException))]
+        public void Artist_ArtistName_CantBeEmpty()
+        {
+            // Act
+            var artist = new Artist("");            
+
+            // Assert
+            Assert.Fail("should have thrown an exception");	
+        }
+
+        [TestMethod]
         public void Artist_TwoSameArtists_AreEqual()
         {
             // Arrange
@@ -46,5 +60,45 @@ namespace Common.UnitTests.Models
             Assert.AreNotEqual(artist1, artist2);
         }
 
+        [TestMethod]
+        public void Artist_CanAddAlbum()
+        {
+            // Arrange
+            IArtist artist = new Artist("Mudhoney");
+            var album = new TestAlbum
+            {
+                ArtistName = "Mudhoney",
+                Title = "Touch Me I'm Sick"
+            };
+
+            // Act
+            artist = artist.Add(album);
+
+            // Assert
+            Assert.AreEqual(1, artist.Albums.Count());
+        }
+
+        [TestMethod]
+        public void Artist_CanAddTwoAlbums()
+        {
+            // Arrange
+            var album1 = new TestAlbum
+            {
+                ArtistName = "Screaming Trees",
+                Title = "Sweet Oblivion"
+            };
+            var album2 = new TestAlbum
+            {
+                ArtistName = "Screaming Trees",
+                Title = "Dust"
+            };
+
+            // Act
+            IArtist artist = new Artist("Screaming Trees")
+                .Add(album1).Add(album2);
+
+            // Assert
+            Assert.AreEqual(2, artist.Albums.Count());
+        }
     }
 }

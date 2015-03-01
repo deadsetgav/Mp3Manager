@@ -12,37 +12,39 @@ namespace FileRepository.Handlers
 {
     class CollectionHandler : ICollectionHandler
     {
-        IMp3Handler _mp3Handler;
-        ArtistCollection _collection;
+        IMp3Reader _mp3Handler;
+        MusicCollection _collection;
 
         public CollectionHandler()
         {
             _mp3Handler = new Mp3Handler();
         }
 
-        internal CollectionHandler(IMp3Handler Handler)
+        internal CollectionHandler(IMp3Reader Handler)
         {
             _mp3Handler = Handler;
         }
 
-        public IArtistCollection ReadCollection(string directoryPath)
+        public IMusicCollection ReadCollection(string directoryPath)
         {
-            _collection = new ArtistCollection();
+            _collection = new MusicCollection();
 
-            var directory = new MusicDirectory(directoryPath);
+            var directory = new MusicDirectoryReader(directoryPath);
 
 
-            return new ArtistCollection()
+            return new MusicCollection()
                         .Add(new Artist("test1"))
                         .Add(new Artist("test2"))
                         .Add(new Artist("test3"));
         }
 
-        private void ReadDirectory(MusicDirectory directory)
+        private void GetAlbumsFromDirectory(MusicDirectoryReader directory)
         {
             if (directory.ContainsMusicFiles())
             {
-              
+                var album = new Album(directory, this._mp3Handler);
+                
+                
             }
         }
 

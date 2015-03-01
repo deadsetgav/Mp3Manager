@@ -9,6 +9,6 @@ namespace FileRepository.Abstract
 {
     interface ICollectionHandler
     {
-        IArtistCollection ReadCollection(string directoryPath);
+        IMusicCollection ReadCollection(string directoryPath);
     }
 }

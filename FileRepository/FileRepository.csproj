@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FileRepository</RootNamespace>
     <AssemblyName>FileRepository</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,14 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICollectionHandler.cs" />
-    <Compile Include="Abstract\IMp3Handler.cs" />
+    <Compile Include="Abstract\IMp3Reader.cs" />
     <Compile Include="Abstract\IMp3Writer.cs" />
     <Compile Include="Concrete\Album.cs" />
     <Compile Include="Concrete\Mp3File.cs" />
     <Compile Include="Concrete\Mp3FileWriter.cs" />
     <Compile Include="Handlers\CollectionHandler.cs" />
     <Compile Include="Handlers\Mp3Handler.cs" />
-    <Compile Include="Handlers\MusicDirectory.cs" />
+    <Compile Include="Handlers\MusicDirectoryReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
