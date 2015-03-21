@@ -11,5 +11,6 @@ namespace Common.Abstract
         string Name { get; }
         IEnumerable<IAlbum> Albums { get; }
         IArtist Add(IAlbum album);
+        int NumberOfAlbums { get; }
     }
 }

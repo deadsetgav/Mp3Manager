@@ -17,4 +17,5 @@ namespace Common.UnitTests.TestObjects
             get { throw new NotImplementedException(); }
         }
     }
+
 }

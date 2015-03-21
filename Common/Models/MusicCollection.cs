@@ -10,7 +10,8 @@ namespace Common.Models
     public class MusicCollection : IMusicCollection
     {
         private List<IArtist> _artistList;
-
+        private int _albumCount;
+ 
         public MusicCollection()
         {
             this._artistList = new List<IArtist>();
@@ -28,10 +29,15 @@ namespace Common.Models
             get { return _artistList.Count; }
         }
 
+        public int AlbumCount
+        {
+            get { return _albumCount; }
+        }
+
         public IMusicCollection Add(IArtist artist)
         {
             var updateList = new List<IArtist>();
-            updateList.AddRange(_artistList);
+            updateList.AddRange(this._artistList);
 
             if (!this.ContainsArtist(artist))
             {
@@ -40,7 +46,9 @@ namespace Common.Models
 
             return new MusicCollection()
             {
-                _artistList =  updateList
+                _artistList =  updateList,
+                _albumCount = this._albumCount 
+                                + artist.NumberOfAlbums
             };
         }
 
@@ -52,19 +60,9 @@ namespace Common.Models
             }
             else
             {
-                var artist = new Artist(album.ArtistName);
+                var artist = new Artist(album.ArtistName).Add(album);
                 return this.Add(artist);
             }
-        }
-
-        private IMusicCollection AddAlbumToArtist(IAlbum album)
-        {
-            _artistList
-                .Where(f => f.Name == album.ArtistName)
-                .FirstOrDefault()
-                .Add(album);
-
-            return this;
         }
 
         public bool ContainsArtist(IArtist artist)
@@ -77,6 +75,23 @@ namespace Common.Models
             return ContainsArtist(new Artist(artistName));
         } 
 
-        #endregion
+        #endregion 
+        
+        private IMusicCollection AddAlbumToArtist(IAlbum album)
+        {
+            var collection = new MusicCollection()
+            {
+                _artistList = this._artistList,
+                _albumCount = this._albumCount + 1
+            };
+
+            collection._artistList
+                .Where(f => f.Name == album.ArtistName)
+                .FirstOrDefault()
+                .Add(album);
+
+            return collection;
+        }
+
     }
 }

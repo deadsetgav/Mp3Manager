@@ -126,6 +126,7 @@ namespace Common.UnitTests.Models
 
             // Assert
             Assert.AreEqual(1, collection.ArtistCount);
+            Assert.AreEqual(1, collection.AlbumCount);
         }
 
         [TestMethod]
@@ -144,7 +145,28 @@ namespace Common.UnitTests.Models
             collection = collection.Add(album);
 
             // Assert
-            Assert.AreEqual(1, collection.ArtistCount);           
+            Assert.AreEqual(1, collection.ArtistCount);
+            Assert.AreEqual(1, collection.AlbumCount);
+        }
+
+        [TestMethod]
+        public void MusicCollection_AddAlbum_IncrementsAlbumCount()
+        {
+            // Arrange
+            IMusicCollection collection = new MusicCollection();
+            
+            // Act
+            var updatedCollection = collection.Add(new TestAlbum { ArtistName = "Metallica", Title = "Master Of Puppets" })
+                                              .Add(new TestAlbum { ArtistName = "Metallica", Title = "Ride The Lightning" })
+                                              .Add(new TestAlbum { ArtistName = "Slayer", Title = "Seasons In The Abyss" })
+                                              .Add(new TestAlbum { ArtistName = "Megadeth", Title = "Rust In Peace" })
+                                              .Add(new TestAlbum { ArtistName = "Slayer", Title = "South Of Heaven" });
+            // Assert
+            Assert.AreEqual(0, collection.ArtistCount, "object should be immutable, so original state should remain");
+            Assert.AreEqual(0, collection.AlbumCount, "object should be immutable, so original state should remain");
+
+            Assert.AreEqual(3,updatedCollection.ArtistCount);
+            Assert.AreEqual(5,updatedCollection.AlbumCount);
         }
     }
 }

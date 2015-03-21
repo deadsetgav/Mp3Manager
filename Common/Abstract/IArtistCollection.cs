@@ -10,6 +10,7 @@ namespace Common.Abstract
     {
         IEnumerable<IArtist> Artists { get; }
         int ArtistCount { get; }
+        int AlbumCount { get; }
         
         IMusicCollection Add(IArtist artist);
         IMusicCollection Add(IAlbum album);

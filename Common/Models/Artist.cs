@@ -32,6 +32,11 @@ namespace Common.Models
             get { return _albums.ToArray(); }
         }
 
+        public int NumberOfAlbums
+        {
+            get { return _albums.Count(); }
+        }
+
         public IArtist Add(IAlbum album)
         {
             _albums.Add(album);

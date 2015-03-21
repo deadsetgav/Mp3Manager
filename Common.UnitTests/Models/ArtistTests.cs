@@ -100,5 +100,7 @@ namespace Common.UnitTests.Models
             // Assert
             Assert.AreEqual(2, artist.Albums.Count());
         }
+
+       
     }
 }
