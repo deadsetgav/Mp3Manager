@@ -18,8 +18,9 @@ namespace Formatting.UnitTests.ITracks
         public void TrackFormat_UseTrimTitleAndPrecedingZeros()
         {
             // Arrange
-            var format = new RemovePrecedingZerosFromTrackNumber()
-                .Add(new RemoveTrackNumberFromSongTitle());
+            var format = new RemovePrecedingZerosFromTrackNumber(
+                new RemoveTrackNumberFromSongTitle());
+                
 
             var mp3 = GetTestTrack();
 
@@ -36,9 +37,10 @@ namespace Formatting.UnitTests.ITracks
         {
             // Arrange
             var album = GetTestAlbum();
-            var format = new RemovePrecedingZerosFromTrackNumber()
-                .Add(new RemoveTrackNumberFromSongTitle())
-                .Add(new SetAlbumArtist(album));
+            var format = new RemovePrecedingZerosFromTrackNumber(
+                new RemoveTrackNumberFromSongTitle(
+                    new SetAlbumArtist(album)));
+               
 
             var mp3 = GetTestTrack();
 

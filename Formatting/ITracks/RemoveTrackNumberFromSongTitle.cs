@@ -8,15 +8,27 @@ using System.Text.RegularExpressions;
 
 namespace Formatting.ITracks
 {
-    class RemoveTrackNumberFromSongTitle : TrackFormatDecorator
+    class RemoveTrackNumberFromSongTitle : ITrackFormatter
     {
-        public override void Format(IMp3Metadata mp3)
+        ITrackFormatter _decoratedFormatter;
+
+        public RemoveTrackNumberFromSongTitle()
+        {
+            _decoratedFormatter = new EmptyTrackFormatter();
+        }
+
+        public RemoveTrackNumberFromSongTitle(ITrackFormatter formatter)
+        {
+            _decoratedFormatter = formatter;
+        }
+
+        public void Format(IMp3Metadata mp3)
         {
             var reg = new Regex("^([0-9]*)(\\s)-(\\s)");
             var match = reg.Match(mp3.Title);
             mp3.Title =  mp3.Title.Remove(match.Index, match.Length);
 
-            _formatter.Format(mp3);
+            _decoratedFormatter.Format(mp3);
         }
     }
 }
