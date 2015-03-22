@@ -11,12 +11,13 @@ namespace Formatting.ITracks
     class RemoveTrackNumberFromSongTitle : TrackFormatDecorator
     {
         public override void Format(IMp3Metadata mp3)
-        {
+        { 
+            base.Format(mp3);
+
             var reg = new Regex("^([0-9]*)(\\s)-(\\s)");
             var match = reg.Match(mp3.Title);
             mp3.Title =  mp3.Title.Remove(match.Index, match.Length);
 
-            _decoratedFormatter.Format(mp3);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Formatting.Abstract
 {
-    class TrackFormatDecorator : ITrackFormatter
+    abstract class TrackFormatDecorator : ITrackFormatter
     {
         protected ITrackFormatter _decoratedFormatter;
 
@@ -18,6 +18,7 @@ namespace Formatting.Abstract
 
         public virtual void Format(IMp3Metadata mp3)
         {
+            _decoratedFormatter.Format(mp3);
         }
 
         public TrackFormatDecorator Add(TrackFormatDecorator formatter)

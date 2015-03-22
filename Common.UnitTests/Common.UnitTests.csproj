@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\StringHelperTests.cs" />
     <Compile Include="Models\AlbumTests.cs" />
     <Compile Include="Models\MusicCollectionTests.cs" />
     <Compile Include="Models\ArtistTests.cs" />

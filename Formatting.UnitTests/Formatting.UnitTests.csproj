@@ -51,12 +51,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ITracks\AddTrackNumberToSongTitleTests.cs" />
     <Compile Include="ITracks\IFormatTracksTests.cs" />
     <Compile Include="ITracks\RemoveTrackNumberFromSongTitleTests.cs" />
     <Compile Include="ITracks\RemovePrecedingZerosFromTrackNumberTests.cs" />
     <Compile Include="ITracks\SetAlbumArtistTests.cs" />
+    <Compile Include="ITracks\StandardiseArtistTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObjects\TestAlbum.cs" />
+    <Compile Include="TestObjects\TestFormatters.cs" />
     <Compile Include="TestObjects\TestTrack.cs" />
   </ItemGroup>
   <ItemGroup>

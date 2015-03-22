@@ -43,9 +43,11 @@
     <Compile Include="Abstract\IAlbumFormatter.cs" />
     <Compile Include="Abstract\ITrackFormatter.cs" />
     <Compile Include="Abstract\TrackFormatDecorator.cs" />
+    <Compile Include="ITracks\AddTrackNumberToSongTitle.cs" />
     <Compile Include="ITracks\RemovePrecedingZerosFromTrackNumber.cs" />
     <Compile Include="ITracks\RemoveTrackNumberFromSongTitle.cs" />
     <Compile Include="ITracks\SetAlbumArtist.cs" />
+    <Compile Include="ITracks\StandardiseArtist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

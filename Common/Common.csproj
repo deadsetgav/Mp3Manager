@@ -49,6 +49,9 @@
     <Compile Include="Exceptions\DirectoryDoesntExistException.cs" />
     <Compile Include="Exceptions\ErrorRetrievingMp3Exception.cs" />
     <Compile Include="Exceptions\NullArgumentExceptions.cs" />
+    <Compile Include="Exceptions\TrackFormatException.cs" />
+    <Compile Include="Helpers\DamerauLevenshtein.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\MusicCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

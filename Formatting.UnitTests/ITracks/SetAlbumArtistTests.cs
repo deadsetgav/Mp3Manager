@@ -31,5 +31,26 @@ namespace Formatting.UnitTests.ITracks
             // Assert
             Assert.AreEqual("Therapy?", mp3.AlbumArtist);
         }
+
+        [TestMethod]
+        public void TrackFormat_SetAlbumArtist_OverwritesIncorrectValue()
+        {
+            // Arrange
+            var troublegum = new TestAlbum("Troublegum", "Therapy?");
+            var format = new SetAlbumArtist(troublegum);
+
+            var mp3 = new TestTrack()
+            {
+                Title = "01 - Knives",
+                Track = "01",
+                AlbumArtist = "Terrorvision"
+            };
+
+            // Act
+            format.Format(mp3);
+
+            // Assert
+            Assert.AreEqual("Therapy?", mp3.AlbumArtist);
+        }
     }
 }

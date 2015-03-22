@@ -19,8 +19,9 @@ namespace Formatting.ITracks
 
         public override void Format(IMp3Metadata mp3)
         {
+            base.Format(mp3);
+
             mp3.AlbumArtist = _album.ArtistName;
-            _decoratedFormatter.Format(mp3);
         }
-    }
+    }  
 }
