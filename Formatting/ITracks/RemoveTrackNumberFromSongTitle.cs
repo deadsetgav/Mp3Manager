@@ -8,21 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace Formatting.ITracks
 {
-    class RemoveTrackNumberFromSongTitle : ITrackFormatter
+    class RemoveTrackNumberFromSongTitle : TrackFormatDecorator
     {
-        ITrackFormatter _decoratedFormatter;
-
-        public RemoveTrackNumberFromSongTitle()
-        {
-            _decoratedFormatter = new EmptyTrackFormatter();
-        }
-
-        public RemoveTrackNumberFromSongTitle(ITrackFormatter formatter)
-        {
-            _decoratedFormatter = formatter;
-        }
-
-        public void Format(IMp3Metadata mp3)
+        public override void Format(IMp3Metadata mp3)
         {
             var reg = new Regex("^([0-9]*)(\\s)-(\\s)");
             var match = reg.Match(mp3.Title);

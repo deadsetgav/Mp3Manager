@@ -8,27 +8,18 @@ using System.Threading.Tasks;
 
 namespace Formatting.ITracks
 {
-    class SetAlbumArtist : ITrackFormatter
+    class SetAlbumArtist : TrackFormatDecorator
     {
         IAlbum _album;
-        ITrackFormatter _decoratedFormatter;
 
         public SetAlbumArtist(IAlbum album)
         {
             _album = album;
-            _decoratedFormatter = new EmptyTrackFormatter();
         }
 
-        public SetAlbumArtist(IAlbum album, ITrackFormatter formatter)
-        {
-            _album = album;
-            _decoratedFormatter = formatter;
-        }
-      
-        public void Format(IMp3Metadata mp3)
+        public override void Format(IMp3Metadata mp3)
         {
             mp3.AlbumArtist = _album.ArtistName;
-
             _decoratedFormatter.Format(mp3);
         }
     }

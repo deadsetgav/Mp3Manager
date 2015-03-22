@@ -18,8 +18,8 @@ namespace Formatting.UnitTests.ITracks
         public void TrackFormat_UseTrimTitleAndPrecedingZeros()
         {
             // Arrange
-            var format = new RemovePrecedingZerosFromTrackNumber(
-                new RemoveTrackNumberFromSongTitle());
+            var format = new RemovePrecedingZerosFromTrackNumber()
+                .Add(new RemoveTrackNumberFromSongTitle());
                 
 
             var mp3 = GetTestTrack();
@@ -37,10 +37,30 @@ namespace Formatting.UnitTests.ITracks
         {
             // Arrange
             var album = GetTestAlbum();
-            var format = new RemovePrecedingZerosFromTrackNumber(
-                new RemoveTrackNumberFromSongTitle(
-                    new SetAlbumArtist(album)));
+            var format = new RemovePrecedingZerosFromTrackNumber()
+                .Add(new RemoveTrackNumberFromSongTitle())
+                .Add(new SetAlbumArtist(album));
                
+
+            var mp3 = GetTestTrack();
+
+            // Act
+            format.Format(mp3);
+
+            // Assert
+            Assert.AreEqual("1", mp3.Track);
+            Assert.AreEqual("Knives", mp3.Title);
+            Assert.AreEqual("Therapy?", mp3.AlbumArtist);
+        }
+
+        [TestMethod]
+        public void TrackFormat_IncludeSetAlbumArtist2()
+        {
+            // Arrange
+            var album = GetTestAlbum();
+            var format = new RemovePrecedingZerosFromTrackNumber()
+                .Add(new RemoveTrackNumberFromSongTitle())
+                .Add(new SetAlbumArtist(album));
 
             var mp3 = GetTestTrack();
 
