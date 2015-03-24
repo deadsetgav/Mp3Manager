@@ -42,7 +42,7 @@ namespace FileRepository.Handlers
         {
             if (directory.ContainsMusicFiles())
             {
-                var album = new Album(directory, this._mp3Handler);
+                var album = new AlbumHandler(directory, this._mp3Handler);
                 
                 
             }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FileRepository.Handlers
 {
-    class Mp3Handler : IMp3Reader
+    class Mp3Handler : IMp3Reader, IMp3Writer
     {
         private IMp3Writer _writer;
 
@@ -34,6 +34,16 @@ namespace FileRepository.Handlers
             {
                 throw new ErrorRetrievingMp3Exception(fullFilePath, ex);
             }
+        }
+
+        public void CopyTo(IMp3File file, string destFilename)
+        {
+            _writer.CopyTo(file, destFilename);
+        }
+
+        public void MoveTo(IMp3File file, string destFilename)
+        {
+            _writer.MoveTo(file,destFilename);
         }
     }
 }

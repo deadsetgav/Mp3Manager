@@ -49,7 +49,7 @@
     <Compile Include="Abstract\ICollectionHandler.cs" />
     <Compile Include="Abstract\IMp3Reader.cs" />
     <Compile Include="Abstract\IMp3Writer.cs" />
-    <Compile Include="Concrete\Album.cs" />
+    <Compile Include="Handlers\AlbumHandler.cs" />
     <Compile Include="Concrete\Mp3File.cs" />
     <Compile Include="Concrete\Mp3FileWriter.cs" />
     <Compile Include="Handlers\CollectionHandler.cs" />
