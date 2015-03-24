@@ -13,7 +13,6 @@ namespace Formatting.UnitTests.ITracks
     [TestClass]
     public class IFormatTracksTests
     {
-
         [TestMethod]
         public void TrackFormat_UseTrimTitleAndPrecedingZeros()
         {

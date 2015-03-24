@@ -16,7 +16,7 @@ namespace Formatting.ITracks
 
             var reg = new Regex("^([0-9]*)(\\s)-(\\s)");
             var match = reg.Match(mp3.Title);
-            mp3.Title =  mp3.Title.Remove(match.Index, match.Length);
+            mp3.Title =  mp3.Title.Remove(match.Index, match.Length).Trim();
 
         }
     }

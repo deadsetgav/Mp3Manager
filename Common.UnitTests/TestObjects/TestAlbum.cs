@@ -11,7 +11,7 @@ namespace Common.UnitTests.TestObjects
     {
         public string Title {get;set;}
         public string ArtistName { get; set; }
-     
+        public string Year { get; set; }
         public IEnumerable<IMp3Metadata> Tracks
         {
             get { throw new NotImplementedException(); }

@@ -75,5 +75,35 @@ namespace FileRepository.UnitTests.Concrete
             // Assert
             Assert.AreEqual("Faith No More", album.ArtistName);
         }
+
+        [TestMethod]
+        public void Album_Year_IsPopulated()
+        {
+            // Arrange
+            var album = TestAlbum.AngelDust();
+
+            // Assert
+            Assert.AreEqual("1992", album.Year);
+        }
+
+        [TestMethod]
+        public void Album_MostCommonYear_IsUsed()
+        {
+            // Arrange
+            var album = TestAlbum.Sap();
+
+            // Assert
+            Assert.AreEqual("1994", album.Year);
+        }
+
+        [TestMethod]
+        public void Album_NoYearSet()
+        {
+            // Arrage
+            var album = TestAlbum.Babyteeth();
+
+            // Assert
+            Assert.AreEqual(string.Empty, album.Year);
+        }
     }
 }

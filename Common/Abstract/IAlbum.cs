@@ -10,6 +10,7 @@ namespace Common.Abstract
     {
         string Title { get; }
         string ArtistName { get; }
+        string Year { get; }
         IEnumerable<IMp3Metadata> Tracks { get; }
     }
 }

@@ -18,15 +18,17 @@ namespace Formatting.UnitTests.TestObjects
             this._testList = new List<IMp3Metadata>();
         }
 
-        public TestAlbum(string title, string artist, List<IMp3Metadata> testTracks)
+        public TestAlbum(string title, string artist, string year, List<IMp3Metadata> testTracks)
         {
             this.Title = title;
             this.ArtistName = artist;
+            this.Year = year;
             this._testList = testTracks;
         }
 
         public string Title { get; set; } 
         public string ArtistName { get; set; }
+        public string Year { get; set; }
 
         public IEnumerable<IMp3Metadata> Tracks
         {
@@ -53,7 +55,7 @@ namespace Formatting.UnitTests.TestObjects
             tracks.Add(new TestTrack { Track = "10", Title = "Message in Blood", Album = "Cowboys From Hell", AlbumArtist = "Pantera", Artist = "Pantera", Year = "1991" });
             tracks.Add(new TestTrack { Track = "11", Title = "The Sleep", Album = "Cowboys From Hell", AlbumArtist = "Pantera", Artist = "Pantera", Year = "1991" });
             tracks.Add(new TestTrack { Track = "12", Title = "The Art Of Shredding", Album = "Cowboys From Hell", AlbumArtist = "Pantera", Artist = "Pantera", Year = "1991" });
-            return new TestAlbum("Cowboys From Hell","Pantera", tracks);
+            return new TestAlbum("Cowboys From Hell","Pantera","1991", tracks);
         }
 
         public static IAlbum RoadsToJudah()
@@ -63,7 +65,7 @@ namespace Formatting.UnitTests.TestObjects
             tracks.Add(new TestTrack { Track = "02", Title = "Languge Games", Album = "Roads To Judah", Artist = "Deafheaven", AlbumArtist = "", Year = "2011" });
             tracks.Add(new TestTrack { Track = "03", Title = "Unrequited", Album = "Roads To Judah", Artist = "DEAFHEAVEN", AlbumArtist = "", Year = "2011" });
             tracks.Add(new TestTrack { Track = "04", Title = "Tunnel Of Trees", Album = "RoadsToJudah", Artist = "Deafheaven", AlbumArtist = "", Year = "2011" });
-            return new TestAlbum("Roads To Judah","Deafheaven",tracks);
+            return new TestAlbum("Roads To Judah","Deafheaven", "2011",tracks);
         }
 
         public static IAlbum AngelDust()
@@ -84,7 +86,7 @@ namespace Formatting.UnitTests.TestObjects
             tracks.Add(albumTrack.Create("12", "Jizzlobber"));
             tracks.Add(albumTrack.Create("13", "Midnight Cowboy"));
             tracks.Add(albumTrack.Create("14", "Easy"));
-            return new TestAlbum("Angel Dust"," Faith No More",tracks);
+            return new TestAlbum("Angel Dust","Faith No More","1992",tracks);
         }
 
         #endregion
