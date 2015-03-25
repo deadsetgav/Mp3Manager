@@ -5,20 +5,27 @@ using Common.UnitTests.TestObjects;
 namespace MongoRepository.IntegrationTests
 {
     [TestClass]
-    public class TestDataAccess
+    public class DataAccessTests
     {
+        DataAccess _db;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _db = new DataAccess("IntegrationTests");
+        }
+
         [TestMethod, TestCategory("IntegrationTests")]
-        public void TestMethod1()
+        public void MongoRepo_CanSaveAlbum()
         {
             // Arrange
             var album = TestAlbum.CowboysFromHell();
-            var dataAccess = new DataAccess();
-
+           
             // Act
-            dataAccess.Save(album);
+            _db.Save(album);
 
             // Assert
-			
+            Assert.IsTrue(_db.Exists(album.ArtistName, album.Title));
         }
     }
 }

@@ -36,6 +36,11 @@ namespace Common.UnitTests.TestObjects
             }
         }
 
+        public IMp3Metadata GetFirstTrack()
+        {
+            return _testList[0];
+        }
+
         public void Save()
         {
             Saved = true;
