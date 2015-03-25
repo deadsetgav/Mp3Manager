@@ -15,7 +15,9 @@ namespace Common.Models
         {
             _tracks = tracks;
         }
-
+        
+        #region IAlbum
+        
         public string Title
         {
             get { return GetMostCommonAlbumTitleFromTracks(); }
@@ -35,6 +37,20 @@ namespace Common.Models
         {
             get { return _tracks.ToArray(); }
         }
+
+        #endregion
+
+        #region
+
+        public void Save()
+        {
+            foreach (var track in _tracks)
+            {
+                track.Save();
+            }
+        }
+
+        #endregion
 
         private string GetMostCommonArtistNameFromTracks()
         {

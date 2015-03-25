@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Abstract
 {
-    public interface IAlbum
+    public interface IAlbum : ISave
     {
         string Title { get; }
         string ArtistName { get; }

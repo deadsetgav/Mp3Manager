@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Common.Abstract
 {
-    public interface IMp3File 
+    public interface ISave
     {
-        string FullFilePath { get; }
-
-        
-        void CopyTo(string filepath);
-        void MoveTo(string filepath);
+        void Save();
     }
 }

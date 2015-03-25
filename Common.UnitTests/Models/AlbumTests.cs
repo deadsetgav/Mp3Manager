@@ -105,5 +105,21 @@ namespace Common.UnitTests.Models
             // Assert
             Assert.AreEqual(string.Empty, album.Year);
         }
+    
+        [TestMethod]
+        public void Album_Save_TracksSaved()
+        {
+            // Arrage
+            var album = TestAlbum.Babyteeth();
+
+            // Act
+            album.Save();
+
+            // Assert
+            foreach (var track in album.Tracks)
+            {
+                Assert.IsTrue((track as TestTrack).Saved);
+            }
+        }
     }
 }

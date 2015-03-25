@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE08F7E7-A826-409F-B259-EBF0EF5C6D0E}</ProjectGuid>
+    <ProjectGuid>{B9FE334A-1FC6-44E6-8BE8-747A5AE9C518}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common</RootNamespace>
-    <AssemblyName>Common</AssemblyName>
+    <RootNamespace>MongoRepository</RootNamespace>
+    <AssemblyName>MongoRepository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -40,23 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAlbum.cs" />
-    <Compile Include="Abstract\IArtist.cs" />
-    <Compile Include="Abstract\IArtistCollection.cs" />
-    <Compile Include="Abstract\IMp3.cs" />
-    <Compile Include="Abstract\IMp3File.cs" />
-    <Compile Include="Abstract\IMp3Metadata.cs" />
-    <Compile Include="Abstract\ISave.cs" />
-    <Compile Include="Exceptions\DirectoryDoesntExistException.cs" />
-    <Compile Include="Exceptions\ErrorRetrievingMp3Exception.cs" />
-    <Compile Include="Exceptions\NullArgumentExceptions.cs" />
-    <Compile Include="Exceptions\TrackFormatException.cs" />
-    <Compile Include="Helpers\DamerauLevenshtein.cs" />
-    <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\Artist.cs" />
-    <Compile Include="Models\MusicCollection.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{de08f7e7-a826-409f-b259-ebf0ef5c6d0e}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

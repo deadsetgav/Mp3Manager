@@ -10,29 +10,38 @@ namespace Common.UnitTests.TestObjects
 {
     class TestAlbum : IAlbum
     {
-
         private List<IMp3Metadata> _testList;
 
         public string Title {get;set;}
         public string ArtistName { get; set; }
         public string Year { get; set; }
 
+        public bool Saved { get; private set; }
+
         public TestAlbum()
         {
-
+            Saved = false;
         }
         public TestAlbum(List<IMp3Metadata> testTracks)
         {
             this._testList = testTracks;
+            Saved = false;
         }
 
-        public new IEnumerable<IMp3Metadata> Tracks
+        public IEnumerable<IMp3Metadata> Tracks
         {
             get
             {
                 return _testList.ToArray();
             }
         }
+
+        public void Save()
+        {
+            Saved = true;
+        }
+
+        #region Ready Baked Test Albums
 
         public static Album CowboysFromHell()
         {
@@ -106,6 +115,8 @@ namespace Common.UnitTests.TestObjects
             tracks.Add(new TestTrack { Track = "7", Title = "Dancin' With Manson", Album = "BabyTeeth", Artist = "Therapy?" });
             return new Album(tracks);
         }
+
+        #endregion
     }
 
     class TestAlbumTrack

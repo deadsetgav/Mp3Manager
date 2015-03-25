@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Abstract
 {
-    public interface IMp3Metadata
+    public interface IMp3Metadata : ISave
     {
         string Album { get; set; }
         string AlbumArtist { get; set; }

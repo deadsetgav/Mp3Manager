@@ -9,6 +9,8 @@ namespace Common.UnitTests.TestObjects
 {
     class TestTrack : IMp3Metadata
     {
+        private bool _saved = false;
+
         public string Track { get; set; }
         public string Title { get; set; }
         public string Album { get; set; }
@@ -16,5 +18,11 @@ namespace Common.UnitTests.TestObjects
         public string Artist { get; set; }
         public string Year { get; set; }
         public int BitRate { get { return 320; } }
+        public bool Saved { get { return _saved; } }
+        
+        public void Save()
+        {
+            _saved = true;
+        }
     }
 }

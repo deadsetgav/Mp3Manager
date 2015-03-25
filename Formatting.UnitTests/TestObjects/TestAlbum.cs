@@ -24,11 +24,14 @@ namespace Formatting.UnitTests.TestObjects
             this.ArtistName = artist;
             this.Year = year;
             this._testList = testTracks;
+            this.Saved = false;
         }
 
         public string Title { get; set; } 
         public string ArtistName { get; set; }
         public string Year { get; set; }
+
+        public bool Saved { get; private set; }
 
         public IEnumerable<IMp3Metadata> Tracks
         {
@@ -38,6 +41,10 @@ namespace Formatting.UnitTests.TestObjects
             }
         }
 
+        public void Save()
+        {
+            this.Saved = true;
+        }
 
         #region Ready Made Test Albums
         public static IAlbum CowboysFromHell()
